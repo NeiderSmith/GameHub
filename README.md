@@ -16,7 +16,10 @@ docker run --name gamehub -p 5432:5432 -e POSTGRES_DB=gamehub -e POSTGRES_PASSWO
 ```bash
 pipenv install sqlalchemy psycopg2-binary flask_cors
 ```
-- Ejecutar bash script "start.sh" para iniciar aplicación
+- Ejecutar bash script "start.sh" para iniciar aplicación (Asegurarse de que el archivo posea permisos de ejecución)
+```bash
+./start.sh
+```
 
 ### Inicialización de frontend
 ---
