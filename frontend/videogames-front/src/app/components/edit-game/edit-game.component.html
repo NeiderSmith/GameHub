@@ -1,0 +1,84 @@
+<div class="bg-light">
+    <app-header></app-header>
+    <main>
+        <section class="jumbotron text-center my-1">
+            <div class="container">
+                <h1 class="jumbotron-heading text-center">
+                    Editar juego
+                </h1>
+            </div>
+        </section>
+        <div class="container">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="messageOk != null">
+                <strong>{{messageOk}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                    (click)="cerrarAlert1()"></button>
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="messageErr != null">
+                <strong>{{messageErr}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                    (click)="cerrarAlert2()"></button>
+            </div>
+
+            <div class="py-2 d-flex justify-content-center">
+                <div>
+                    <div class="input-group mb-3">
+                        <img [src]="cover_image || no_disponible" class="card-img-top" alt="..."
+                            style="max-width: 350px;" height="250">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" accept="image/*" (change)="uploadImagen($event)">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Nombre</label>
+                        <input class="form-control item" type="name" id="name" name="title" placeholder="Nombre"
+                            [(ngModel)]="game.title">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="descripcion">Descripcion</label>
+                        <textarea class="form-control" id="descripcion" name="description" placeholder="Descripcion"
+                            [(ngModel)]="game.description"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="precio">Categoria</label>
+                        <select class="form-select" name="category" [(ngModel)]="game.category_id">
+                            <option selected disabled>Selecciona una categoria</option>
+                            <option value="1">Sandbox</option>
+                            <option value="2">Real-time strategy (RTS)</option>
+                            <option value="3">Shooters (FPS and TPS)</option>
+                            <option value="4">Multiplayer online battle arena (MOBA)</option>
+                            <option value="5">Role-playing (RPG, ARPG, and More)</option>
+                            <option value="6">Simulation and sports</option>
+                            <option value="7">Puzzlers and party games</option>
+                            <option value="8">Action-adventure</option>
+                            <option value="9">Survival and horror</option>
+                            <option value="10">Platformer</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="precio">Fecha de lanzamiento</label>
+                        <input type="date" class="form-control" name="release_date" [(ngModel)]="game.release_date">
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="form-check form-switch">
+                            <input
+                              mdbCheckbox
+                              class="form-check-input"
+                              type="checkbox"
+                              id="flexSwitchCheckChecked"
+                              [checked]="true"
+                              name="active"
+                              [(ngModel)]="game.active"
+                            />
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Habilitado al publico</label>
+                          </div>
+                    </div>
+                    <div class="btn-group mb-3">
+                        <button type="button" class="me-2 btn btn-outline-primary" (click)="actualizar()">Actualizar</button>
+                        <button type="button" class="btn btn-outline-danger" (click)="regresar()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
