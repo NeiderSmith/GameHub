@@ -10,6 +10,9 @@ Plataforma para la distribución de juegos online.
 - Ranking (por desarrollar)
 - Numero de veces jugadas (por desarrollar)
 
+### Arquitectura
+![](https://github.com/NeiderSmith/GameHub/blob/main/Arquitectura.jpeg)
+
 ### Guia de instalación
 ---
 - Instalar docker
