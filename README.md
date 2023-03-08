@@ -1,32 +1,21 @@
 ## GameHub
-A continuación una lista de los pasos necesarios para inicializar aplicación.
+Plataforma para la distribución de juegos online.
 
-### Inicialización de base de datos
+### Funcionalidades
 ---
-- Inicializar un contenedor de base de datos postgres
-```bash
-docker run --name gamehub -p 5432:5432 -e POSTGRES_DB=gamehub -e POSTGRES_PASSWORD=password -d postgres
-```
+- Ver catalogo de juegos
+- Añadir nuevos juegos
+- Editar juegos
+- Eliminar juegos
+- Ranking (por desarrollar)
+- Numero de veces jugadas (por desarrollar)
 
-### Inicialización de backend
+### Guia de instalación
 ---
-- Tener instalado python
-- Tener instalado pipenv
-- Crear entorno virtual pipenv en el directorio "backend/" e instalar dependencias
+- Instalar docker
+- En la consola de comandos ejecutar los siguientes comandos
 ```bash
-pipenv install sqlalchemy psycopg2-binary flask_cors
+docker compose build
+docker compose up
 ```
-- Ejecutar bash script "start.sh" para iniciar aplicación (Asegurarse de que el archivo posea permisos de ejecución)
-```bash
-./start.sh
-```
-
-### Inicialización de frontend
----
-- Tener instalado NodeJs 19.7.0
-- Tener instalado Angular CLI 15.2.1
-- Ubicarse dentro de la carpeta "frontend/videogames-front" y correr los comandos
-```bash
-npm install
-ng serve
-```
+- Esto habrá desplegado una instancia de base de datos postgres; un microservicio construido en Python con la libreria Flask; un servicio web construido en Angular

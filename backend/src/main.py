@@ -9,6 +9,7 @@ from .entities.score import Score, ScoreSchema
 from .entities.gamecategory import GameCategory, GameCategorySchema
 from flask_cors import CORS, cross_origin
 from datetime import datetime
+import os
 
 # Instancia de aplicación Flask
 app = Flask(__name__)
@@ -144,3 +145,6 @@ def delete_game(id):
     session.commit()
 
     return jsonify("Eliminado exitosamente"), 201
+
+if __name__ == "__main__":
+    app.run(debug=True)
